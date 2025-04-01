@@ -24,11 +24,11 @@ func LoadConfig() (*Config, error) {
 	}
 
 	cfg := &Config{
-		DBUser:    os.Getenv("DBUser"),
-		Password:  os.Getenv("Password"),
-		Host:      os.Getenv("Host"),
-		Port:      os.Getenv("Port"),
-		DBName:    os.Getenv("DBName"),
+		DBUser:    os.Getenv("DB_USER"),
+		Password:  os.Getenv("DB_PASSWORD"),
+		Host:      os.Getenv("DB_HOST"),
+		Port:      os.Getenv("DB_PORT"),
+		DBName:    os.Getenv("DB_NAME"),
 		SSLMode:   os.Getenv("SSLMode"),
 		JWTSecret: os.Getenv("JWTSecret"),
 	}
