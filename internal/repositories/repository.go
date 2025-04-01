@@ -7,12 +7,12 @@ import (
 )
 
 type Repository interface {
-	UserRepository
-	SessionRepository
-	RoleRepository
+	UserRepositoryInterface
+	SessionRepositoryInterface
+	RoleRepositoryInterface
 }
 
-type UserRepository interface {
+type UserRepositoryInterface interface {
 	// Создание пользователя
 	CreateUser(ctx context.Context, user *models.User) error
 
@@ -33,7 +33,7 @@ type UserRepository interface {
 	DeactivateUser(ctx context.Context, id uuid.UUID) error
 }
 
-type SessionRepository interface {
+type SessionRepositoryInterface interface {
 	//Создание сессии
 	CreateSession(ctx context.Context, id uuid.UUID) (*models.Session, error)
 
@@ -50,7 +50,7 @@ type SessionRepository interface {
 	IsValidSession(ctx context.Context, token string) (bool, error)
 }
 
-type RoleRepository interface {
+type RoleRepositoryInterface interface {
 	// Если роли динамические
 	AssignRole(ctx context.Context, userID uuid.UUID, roleID int) error
 	RevokeRole(ctx context.Context, userID uuid.UUID, roleID int) error
